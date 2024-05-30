@@ -1,0 +1,22 @@
+
+Основной модуль: 
+function main():
+    K = read_integer()
+    results = []
+    for i = 0 to K - 1:
+        ticket = read_ticket()
+        if check_ticket(ticket - 1) or check_ticket(ticket + 1):
+            results.append("Yes")
+        else:
+            results.append("No")
+    for result in results:
+        print(result)
+Функция проверки билета: 
+ function check_ticket(ticket):
+    digits = convert_ticket_to_digits(ticket)
+    sum_first_three = digits[0] + digits[1] + digits[2]
+    sum_last_three = digits[3] + digits[4] + digits[5]
+    return sum_first_three == sum_last_three
+Функция преобразования билета в цифры:
+function convert_ticket_to_digits(ticket):
+    return [int(digit) for digit in str(ticket).zfill(6)]
