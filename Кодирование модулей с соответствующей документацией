@@ -1,0 +1,28 @@
+Кодирование модулей с соответствующей документацией
+
+def read_ticket():
+    return input().strip()
+
+def convert_ticket_to_digits(ticket):
+    return [int(digit) for digit in str(ticket).zfill(6)]
+
+def check_ticket(ticket):
+    digits = convert_ticket_to_digits(ticket)
+    sum_first_three = sum(digits[:3])
+    sum_last_three = sum(digits[3:])
+    return sum_first_three == sum_last_three
+
+def main():
+    K = int(input())
+    results = []
+    for _ in range(K):
+        ticket = int(read_ticket())
+        if check_ticket(ticket - 1) or check_ticket(ticket + 1):
+            results.append("Yes")
+        else:
+            results.append("No")
+    for result in results:
+        print(result)
+
+if __name__ == "__main__":
+    main()
