@@ -1,0 +1,44 @@
+def test_convert_ticket_to_digits():
+    assert convert_ticket_to_digits(715068) == [7, 1, 5, 0, 6, 8]
+    assert convert_ticket_to_digits(12) == [0, 0, 0, 0, 1, 2]
+
+def test_check_ticket():
+    assert check_ticket(715067) == True
+    assert check_ticket(715069) == False
+    assert check_ticket(122200) == True
+
+test_convert_ticket_to_digits()
+test_check_ticket()  
+
+
+Компиляция и запуск тестов
+1. Установите Google Test на вашей системе.
+2. Скомпилируйте и запустите тесты:
+
+def main():
+    K = int(input())
+    results = []
+    for _ in range(K):
+        ticket = int(read_ticket())
+        if check_ticket(ticket - 1) or check_ticket(ticket + 1):
+            results.append("Yes")
+        else:
+            results.append("No")
+    for result in results:
+        print(result)
+
+if __name__ == "__main__":
+    main() 
+
+Белый ящик. def test_convert_ticket_to_digits():
+    assert convert_ticket_to_digits(715068) == [7, 1, 5, 0, 6, 8]
+    assert convert_ticket_to_digits(12) == [0, 0, 0, 0, 1, 2]
+
+def test_check_ticket():
+    assert check_ticket(715067) == True
+    assert check_ticket(715069) == False
+    assert check_ticket(122200) == True
+
+test_convert_ticket_to_digits()
+test_check_ticket()
+
